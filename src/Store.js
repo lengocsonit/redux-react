@@ -1,3 +1,6 @@
+import numReducer from './reducers/numReducer';
+import editStatusReducer from './reducers/editStatusReducer';
+
 // Import redux
 var redux = require('redux')
 var oldState = {
@@ -25,27 +28,7 @@ var reducer1 = (state = oldState, action) => {
 }
 
 //Chia tach reducder de quan ly
-const numReducerInitialState = [1, 2, 3]
-const numReducer = (state = numReducerInitialState, action) => {
-    switch (action.type) {
-        case "ADD_NUM":
-            return [...state, action.newItem]
-        case "DELETE":
-            return state.filter((value, index) => value !== action.num)
-        default:
-            return state
-    }
-}
 
-const editStatusReducerInitialState = true
-const editStatusReducer = (state = editStatusReducerInitialState, action) => {
-    switch (action.type) {
-        case "EDIT_STATE":
-            return !state
-        default:
-            return state
-    }
-}
 //Ket hoi cac reducer lai thanh 1 reducer
 const allReducer = redux.combineReducers({
     num: numReducer,
@@ -73,6 +56,11 @@ store1.dispatch({
 store1.dispatch({
     type: "DELETE",
     num: 1
+})
+
+store1.dispatch({
+    type: "DELETE",
+    num: 2
 })
 
 export default store1
