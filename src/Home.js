@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import Header from './components/Header'
 import { connect } from 'react-redux'
+import MyDropzone from './components/MyDropzone'
 
 //this.props.number = store.state.num
 class Home extends Component {
     render() {
         return (
             <div>
+                <MyDropzone />
                 <h2>Home Page</h2>
                 {this.props.number}
                 <Header />
